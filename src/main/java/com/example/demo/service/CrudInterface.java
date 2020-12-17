@@ -8,7 +8,7 @@ public interface CrudInterface<T>{
     Optional<T> findById(long id);
     void delete(T entity);
     void deleteById(long id);
-    long count();
+    
     
 }
 

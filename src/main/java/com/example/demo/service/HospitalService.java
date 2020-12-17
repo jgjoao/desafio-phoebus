@@ -31,6 +31,7 @@ public class HospitalService implements CrudInterface<HospitalModel> {
 	}
 
 	@Override
+	// relatario do projeto
 	public Optional<HospitalModel> findById(long id) {
 		
 		return hospitalRepository.findById(id);
@@ -48,10 +49,6 @@ public class HospitalService implements CrudInterface<HospitalModel> {
 		
 	}
 
-	@Override
-	public long count() {
-		
-		return hospitalRepository.count();
-	}
+
 
 }
