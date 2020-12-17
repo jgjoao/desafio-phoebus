@@ -31,19 +31,13 @@ public class HospitalResource {
 			return hospitalService.findAll();
 		}
 		
-		// relatorio dos hospitais.
-		@GetMapping("/hospitalrelatorio")
-		
-		public List<HospitalModel> getHospitais() {
-
-			return hospitalService.findAll();
-		}
 		
 
 		@PostMapping("/hospital")
 		public ResponseEntity<HospitalModel> save(@RequestBody HospitalModel hospital) {
 
 			hospital= hospitalService.save(hospital).get();
+			
 
 			return ResponseEntity.ok().body(hospital);
 		}

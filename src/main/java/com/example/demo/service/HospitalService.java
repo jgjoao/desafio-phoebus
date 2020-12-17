@@ -25,13 +25,20 @@ public class HospitalService implements CrudInterface<HospitalModel> {
 
 	@Override
 	public Optional<HospitalModel> save(HospitalModel entity) {
+		int medico = entity.getMedico();
+		int enfermeira = entity.getEnfermeira();
+		int respirador = entity.getRespirador();
+		int tomografo = entity.getTomografo();
+		int ambulancia = entity.getAmbulancia();
+		int soma = (medico*3) + (enfermeira*3)+(respirador*5)+(tomografo*12)+(ambulancia*12);
+		entity.setPontos(soma);
 		entity.setLocalizacao(faker.address().longitude() + faker.address().latitude());
 		entity.setEndereco(faker.address().streetAddress());
 		return Optional.of(hospitalRepository.save(entity));
 	}
 
 	@Override
-	// relatario do projeto
+	
 	public Optional<HospitalModel> findById(long id) {
 		
 		return hospitalRepository.findById(id);
@@ -42,7 +49,8 @@ public class HospitalService implements CrudInterface<HospitalModel> {
 		
 		 hospitalRepository.delete(entity);
 	}
-
+	
+	
 	@Override
 	public void deleteById(long id) {
 		hospitalRepository.deleteById(id);
