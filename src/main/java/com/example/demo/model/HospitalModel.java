@@ -16,11 +16,16 @@ public class HospitalModel implements Serializable {
 	
 	private String nome;
 	private String endereco;
-	private Integer cnpj;
+	private String cnpj;
 	private String Localizacao;
 	
 
-	
+	public String getCnpj() {
+		return cnpj;
+	}
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -40,12 +45,7 @@ public class HospitalModel implements Serializable {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public Integer getCnpj() {
-		return cnpj;
-	}
-	public void setCnpj(Integer cnpj) {
-		this.cnpj = cnpj;
-	}
+
 	public String getLocalizacao() {
 		return Localizacao;
 	}

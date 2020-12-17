@@ -8,11 +8,12 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.model.HospitalModel;
 import com.example.demo.repository.HospitalRepository;
+import com.github.javafaker.Faker;
 
 @Service
 public class HospitalService implements CrudInterface<HospitalModel> {
 
-	
+	Faker faker = new Faker();
 	@Autowired
 	private HospitalRepository hospitalRepository;
 	
@@ -24,7 +25,8 @@ public class HospitalService implements CrudInterface<HospitalModel> {
 
 	@Override
 	public Optional<HospitalModel> save(HospitalModel entity) {
-		
+		entity.setLocalizacao(faker.address().longitude() + faker.address().latitude());
+		entity.setEndereco(faker.address().streetAddress());
 		return Optional.of(hospitalRepository.save(entity));
 	}
 
